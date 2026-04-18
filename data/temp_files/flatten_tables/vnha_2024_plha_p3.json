@@ -1,0 +1,78 @@
+[
+  {
+    "table_name": "Bảng 1. Phân loại huyết áp và THA của VSH/VNHA 2024",
+    "row_content": "Tổng quan bảng phân loại huyết áp và tăng huyết áp (VSH/VNHA 2024): Huyết áp không tăng khi HATT <120 và HATTr <70; tiền tăng huyết áp khi HATT 120-139 và/hoặc HATTr 70-89; tăng huyết áp độ 1 khi HATT 140-159 và/hoặc HATTr 90-99; tăng huyết áp độ 2 khi HATT >=160 và/hoặc HATTr >=100.",
+    "metadata": {
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 3,
+      "title": "đồng thuận 2024",
+      "h1": "phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha",
+      "h2": "1/ Điều chỉnh phân loại huyết áp và tăng huyết áp",
+      "h3": "c) Tăng Huyết áp",
+      "header_path": "đồng thuận 2024 > phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha > 1/ Điều chỉnh phân loại huyết áp và tăng huyết áp > c) Tăng Huyết áp",
+      "paragraph_order": 0,
+      "table_group": "bp_classification",
+      "chunk_role": "overview"
+    }
+  },
+  {
+    "table_name": "Bảng 1. Phân loại huyết áp và THA của VSH/VNHA 2024",
+    "row_content": "Huyết áp không tăng: HATT <120 mmHg và HATTr <70 mmHg.",
+    "metadata": {
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 3,
+      "title": "đồng thuận 2024",
+      "h1": "phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha",
+      "h2": "1/ Điều chỉnh phân loại huyết áp và tăng huyết áp",
+      "h3": "c) Tăng Huyết áp",
+      "header_path": "đồng thuận 2024 > phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha > 1/ Điều chỉnh phân loại huyết áp và tăng huyết áp > c) Tăng Huyết áp",
+      "paragraph_order": 1,
+      "table_group": "bp_classification"
+    }
+  },
+  {
+    "table_name": "Bảng 1. Phân loại huyết áp và THA của VSH/VNHA 2024",
+    "row_content": "Tiền tăng huyết áp: HATT 120-139 mmHg và/hoặc HATTr 70-89 mmHg.",
+    "metadata": {
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 3,
+      "title": "đồng thuận 2024",
+      "h1": "phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha",
+      "h2": "1/ Điều chỉnh phân loại huyết áp và tăng huyết áp",
+      "h3": "c) Tăng Huyết áp",
+      "header_path": "đồng thuận 2024 > phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha > 1/ Điều chỉnh phân loại huyết áp và tăng huyết áp > c) Tăng Huyết áp",
+      "paragraph_order": 2,
+      "table_group": "bp_classification"
+    }
+  },
+  {
+    "table_name": "Bảng 1. Phân loại huyết áp và THA của VSH/VNHA 2024",
+    "row_content": "Tăng huyết áp độ 1: HATT 140-159 mmHg và/hoặc HATTr 90-99 mmHg.",
+    "metadata": {
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 3,
+      "title": "đồng thuận 2024",
+      "h1": "phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha",
+      "h2": "1/ Điều chỉnh phân loại huyết áp và tăng huyết áp",
+      "h3": "c) Tăng Huyết áp",
+      "header_path": "đồng thuận 2024 > phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha > 1/ Điều chỉnh phân loại huyết áp và tăng huyết áp > c) Tăng Huyết áp",
+      "paragraph_order": 3,
+      "table_group": "bp_classification"
+    }
+  },
+  {
+    "table_name": "Bảng 1. Phân loại huyết áp và THA của VSH/VNHA 2024",
+    "row_content": "Tăng huyết áp độ 2: HATT >=160 mmHg và/hoặc HATTr >=100 mmHg.",
+    "metadata": {
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 3,
+      "title": "đồng thuận 2024",
+      "h1": "phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha",
+      "h2": "1/ Điều chỉnh phân loại huyết áp và tăng huyết áp",
+      "h3": "c) Tăng Huyết áp",
+      "header_path": "đồng thuận 2024 > phần i: điều chỉnh khuyến cáo 2022 của vsh/vnha > 1/ Điều chỉnh phân loại huyết áp và tăng huyết áp > c) Tăng Huyết áp",
+      "paragraph_order": 4,
+      "table_group": "bp_classification"
+    }
+  }
+]

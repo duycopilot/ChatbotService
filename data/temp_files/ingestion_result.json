@@ -1,0 +1,16 @@
+{
+  "documents": 158,
+  "chunks": 170,
+  "embedded_chunks": 170,
+  "qdrant_result": {
+    "collection_name": "refined_chatbot_chunks",
+    "qdrant_url": "http://localhost:6333",
+    "upserted": 170
+  },
+  "es_result": {
+    "index_name": "refined_chatbot_chunks",
+    "es_url": "http://localhost:9200",
+    "indexed": 170,
+    "request_timeout": 60.0
+  }
+}

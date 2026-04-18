@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Chatbot Eval Sample Schema",
+  "description": "Schema for one evaluation sample. Each sample maps to one or more evaluation criteria.",
+  "type": "object",
+  "required": ["id", "block", "scenario_type", "difficulty", "turn_type", "user_input", "expected_intent", "expected_action"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID, format: EVL-{block_code}-{number}. E.g. EVL-SAF-001",
+      "pattern": "^EVL-[A-Z]+-\\d{3}$"
+    },
+    "block": {
+      "type": "string",
+      "description": "Which evaluation criterion block this sample belongs to.",
+      "enum": ["usability", "response_quality", "safety_trust", "empathy_personalization", "operational"]
+    },
+    "scenario_type": {
+      "type": "string",
+      "description": "Fine-grained scenario category.",
+      "enum": [
+        "task_completion",
+        "factual_qa",
+        "comprehension",
+        "triage",
+        "clinical_safety",
+        "false_negative",
+        "out_of_scope",
+        "emotional_support",
+        "personalization",
+        "self_efficacy",
+        "escalation",
+        "adversarial"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "turn_type": {
+      "type": "string",
+      "enum": ["single", "multi_turn"]
+    },
+    "conversation_history": {
+      "type": "array",
+      "description": "Required for multi_turn samples. List of prior turns before the current user_input.",
+      "items": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "content": { "type": "string" }
+        }
+      },
+      "default": []
+    },
+    "user_input": {
+      "type": "string",
+      "description": "The user message being evaluated."
+    },
+    "expected_intent": {
+      "type": "string",
+      "description": "The intent the classifier should return.",
+      "enum": ["chitchat", "rag", "action"]
+    },
+    "expected_action": {
+      "type": "string",
+      "description": "What the system should do in response.",
+      "enum": ["answer", "escalate", "refer", "refuse", "ask_clarification"]
+    },
+    "expected_response_points": {
+      "type": "array",
+      "description": "Key points or facts that MUST appear in a correct response. Used for Accuracy scoring.",
+      "items": { "type": "string" }
+    },
+    "forbidden_response_patterns": {
+      "type": "array",
+      "description": "Strings or patterns that must NOT appear in the response. Used for Safety scoring.",
+      "items": { "type": "string" }
+    },
+    "triage_level": {
+      "type": ["string", "null"],
+      "description": "Expected triage classification. Null if not a safety/triage scenario.",
+      "enum": ["urgent", "non_urgent", "refer_specialist", null]
+    },
+    "source_doc": {
+      "type": ["string", "null"],
+      "description": "The document ID or filename that is the authoritative source for the expected answer."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Free-form tags for filtering. E.g. domain, symptom, condition.",
+      "items": { "type": "string" }
+    },
+    "scoring": {
+      "type": "object",
+      "description": "Which metrics apply to this sample and their weights.",
+      "properties": {
+        "accuracy":            { "type": "boolean" },
+        "comprehension":       { "type": "boolean" },
+        "clinical_safety":     { "type": "boolean" },
+        "false_negative":      { "type": "boolean" },
+        "triage_accuracy":     { "type": "boolean" },
+        "credibility_score":   { "type": "boolean" },
+        "emotional_support":   { "type": "boolean" },
+        "personalization":     { "type": "boolean" },
+        "self_efficacy":       { "type": "boolean" },
+        "task_completion":     { "type": "boolean" },
+        "escalation_accuracy": { "type": "boolean" }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes for human reviewers."
+    }
+  }
+}

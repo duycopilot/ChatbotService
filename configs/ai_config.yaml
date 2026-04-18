@@ -1,0 +1,202 @@
+# AI Configuration
+# Source of truth for all AI-related runtime settings.
+metadata:
+  config_version: "1.0.0"
+  created_at: "2026-04-04"
+  description: "Unified AI config for runtime, ingestion, query, prompts, and feature flags"
+
+llm:
+  primary:
+    name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
+    version: "1.0"
+    base_url: "${LLM_BASE_URL:http://localhost:8380/v1}"
+    model_id: "${LLM_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
+    api_key: "${LLM_API_KEY:dummy}"
+    hyperparameters:
+      temperature: 0.0
+      max_tokens: 1024
+      top_p: 0.7
+
+  classifier:
+    name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
+    version: "1.0"
+    base_url: "${CLASSIFIER_BASE_URL:http://localhost:8380/v1}"
+    model_id: "${CLASSIFIER_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
+    api_key: "${CLASSIFIER_API_KEY:dummy}"
+    hyperparameters:
+      temperature: 0.0
+      max_tokens: 10
+
+  summarizer:
+    name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
+    version: "1.0"
+    base_url: "${SUMMARIZER_BASE_URL:http://localhost:8380/v1}"
+    model_id: "${SUMMARIZER_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
+    api_key: "${SUMMARIZER_API_KEY:dummy}"
+    hyperparameters:
+      temperature: 0.0
+      max_tokens: 512
+
+embeddings:
+  primary:
+    provider: "openai"
+    model: "text-embedding-3-large"
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "${EMBEDDINGS_BASE_URL:}"
+    hyperparameters:
+      embedding_dimension: 3072
+      batch_size: 100
+
+memory:
+  short_term:
+    backend: "postgres"
+    enabled: true
+    hyperparameters:
+      max_recent_turns: 8      # Number of latest DB turns fetched before token-aware filtering.
+      max_turns_in_prompt: 3   # Target number of recent turns preferred for final prompt context.
+    summarization:
+      enabled: true            # Enable summarization of older turns when history is too long.
+      threshold_tokens: 2400   # Trigger summarization when estimated history tokens >= this value.
+      keep_recent_turns: 2     # Always keep this many newest turns verbatim (not summarized).
+      reserve_tokens: 256      # Reserved input budget to avoid overflow after prompt assembly. (exception tokens)
+      tokenizer:
+        strategy: "auto"      # Token counting mode: auto | hf | tiktoken | simple.
+        model_name: null       # Optional tokenizer model; null falls back to active LLM model name.
+        hf_local_files_only: true  # If true, HF tokenizer loads only local files (no remote download).
+  long_term:
+    enabled: true
+    provider: "qdrant"
+    collection_name: "refined_chatbot_memories"
+    hyperparameters:
+      top_k: 4
+      fallback_limit: 4
+      max_write_items: 3
+      min_confidence: 0.7
+      max_content_chars: 280
+
+rag:
+  query:
+    retrieval:
+      dense:
+        provider: "qdrant"
+        collection_name: "${QDRANT_COLLECTION_NAME:refined_chatbot_chunks}"
+        url: "${QDRANT_URL:http://localhost:6333}"
+        api_key: "${QDRANT_API_KEY:}"
+        hyperparameters:
+          top_k: 5
+      sparse:
+        provider: "elasticsearch"
+        index_name: "${ELASTICSEARCH_INDEX_NAME:refined_chatbot_chunks}"
+        url: "${ELASTICSEARCH_URL:http://localhost:9200}"
+        hyperparameters:
+          top_k: 5
+          boost_factor: 1.5
+          match_type: "best_fields"
+      fusion:
+        method: "reciprocal_rank_fusion"
+        weight_dense: 0.7
+        weight_sparse: 0.3
+        final_top_k: 5
+
+    reranking:
+      enabled: true
+      provider: "cohere"
+      model: "${COHERE_RERANK_MODEL:rerank-v3.5}"
+      api_key: "${COHERE_API_KEY:}"
+      url: "${COHERE_RERANK_URL:https://api.cohere.com/v2/rerank}"
+      hyperparameters:
+        top_k: 3
+        score_threshold: 0.0
+        timeout_seconds: 30
+
+    generation:
+      max_history_turns: 2
+
+  ingestion:
+    chunking:
+      chunk_size: 500
+      chunk_overlap: 100
+    embedding:
+      batch_size: 32
+    indexing:
+      qdrant:
+        batch_size: 128
+        distance: "cosine"
+      elasticsearch:
+        batch_size: 128
+
+prompts:
+  memory_summarization:
+    template: |
+      You are a conversation memory compressor for a medical assistant.
+      Summarize the conversation history into a compact factual memory.
+
+      Rules:
+      - Keep patient facts, symptoms, durations, medications, allergies, and pending questions.
+      - Keep explicit user preferences and constraints.
+      - Remove greetings and repetitive chit-chat.
+      - Do not invent new facts.
+      - Output in plain text, maximum 8 bullet points.
+
+      Conversation history:
+      {turns_text}
+
+      Compact summary:
+
+  long_term_memory_extraction:
+    template: |
+      Extract durable patient memory facts from the conversation below.
+
+      Rules:
+      - Keep only facts likely to matter in future healthcare conversations.
+      - Prefer allergies, chronic conditions, medications, vital signs, body metrics, communication preferences, and care goals.
+      - Include mutable measurements such as blood pressure, BMI, weight, heart rate, respiratory rate, temperature, oxygen saturation, blood sugar, glucose, and pain score.
+      - When the same mutable measurement appears multiple times, keep the latest value as the active one.
+      - Ignore greetings, temporary pleasantries, and assistant-only suggestions.
+      - Do not invent facts.
+      - RESPOND WITH ONLY A JSON ARRAY. NO OTHER TEXT.
+      - Return an array of at most {max_items} objects.
+      - Each object must contain: entity_type, entity_key, attribute_key, value_text or value_json, canonical_value, category, clinical_status, verification_status, content, confidence, metadata.
+      - Use entity_type="patient" and entity_key="self" unless the user explicitly talks about someone else.
+      - Use healthcare-oriented attribute_key values such as allergy, chronic_condition, medication_name, blood_pressure, bmi, weight, weight_change, heart_rate, respiratory_rate, temperature, spo2, blood_sugar, glucose_level, communication_preference, care_goal.
+      - canonical_value must be stable and normalized for deduplication.
+      - If the fact is self-reported by the patient, use verification_status="self_reported".
+
+      Latest user message:
+      {user_message}
+
+  intent_classification:
+    template: |
+      You are an intent classifier for a healthcare chatbot.
+      Classify the user message into exactly one enabled intent below.
+
+      {intent_lines}
+
+      Respond with ONLY one word: {labels}.
+
+      User message: {message}
+    intent_descriptions:
+      chitchat: "General conversation, greetings, and small talk."
+      rag: "Only question needs Hypertension knowledge retrieval."
+      action: "Concrete action request like booking or account operation."
+
+  chitchat_system:
+    template: |
+      You are a helpful and friendly healthcare assistant.
+      Answer the user's questions clearly and concisely.
+      If the question is outside your knowledge, say so honestly.
+
+  rag_generation:
+    template: |
+      You are a healthcare assistant. Use ONLY the provided context to answer.
+      If the context does not contain enough information, say so.
+
+data:
+  raw_dir: "data/raw_files"
+  temp_dir: "data/temp_files"
+
+feature_flags:
+  retrieval_mode: "hybrid"   # hybrid | semantic
+  enabled_intents: ["chitchat", "rag"]
+  translate_input: false
+  translate_output: false

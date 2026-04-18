@@ -1,0 +1,112 @@
+[
+  {
+    "id": "RAG-001",
+    "difficulty": "easy",
+    "question": "What are the symptoms of type 2 diabetes?",
+    "ground_truth": "Common symptoms of type 2 diabetes include increased thirst, frequent urination, fatigue, blurred vision, slow-healing sores, and frequent infections.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["diabetes", "symptoms"],
+    "notes": "Fill 'contexts' with the actual retrieved chunks during eval run. Fill 'answer' with the bot's response."
+  },
+  {
+    "id": "RAG-002",
+    "difficulty": "medium",
+    "question": "How does high blood pressure damage the kidneys?",
+    "ground_truth": "High blood pressure damages the small blood vessels in the kidneys, reducing their ability to filter waste. Over time, this can lead to chronic kidney disease or kidney failure.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["hypertension", "kidney", "complication"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-003",
+    "difficulty": "hard",
+    "question": "What is the mechanism of action of ACE inhibitors in treating heart failure?",
+    "ground_truth": "ACE inhibitors block the conversion of angiotensin I to angiotensin II, reducing vasoconstriction and aldosterone secretion. This lowers blood pressure and reduces the heart's workload, improving cardiac output in heart failure.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["cardiology", "ACE_inhibitors", "pharmacology"],
+    "notes": "Requires specific pharmacological content in the index."
+  },
+  {
+    "id": "RAG-004",
+    "difficulty": "medium",
+    "question": "What lifestyle changes can reduce the risk of stroke?",
+    "ground_truth": "Lifestyle changes that reduce stroke risk include controlling blood pressure, quitting smoking, managing diabetes, maintaining a healthy weight, exercising regularly, limiting alcohol, and following a heart-healthy diet.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["stroke", "prevention", "lifestyle"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-005",
+    "difficulty": "hard",
+    "question": "What is the difference between Type 1 and Type 2 diabetes in terms of pathophysiology?",
+    "ground_truth": "Type 1 diabetes is an autoimmune condition where the immune system destroys insulin-producing beta cells. Type 2 diabetes involves insulin resistance and progressive beta cell dysfunction. Type 1 requires insulin therapy; Type 2 can often be managed initially with lifestyle and oral medications.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["diabetes", "pathophysiology", "type1_vs_type2"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-006",
+    "difficulty": "easy",
+    "question": "How much physical activity is recommended per week for adults?",
+    "ground_truth": "Adults should aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity activity per week, plus muscle-strengthening activities on 2 or more days.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["exercise", "prevention", "general_health"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-007",
+    "difficulty": "medium",
+    "question": "What are the signs that a wound is infected?",
+    "ground_truth": "Signs of wound infection include increasing redness, warmth, swelling, pain at the wound site, pus or discharge, foul smell, fever, and red streaks spreading from the wound.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["wound_care", "infection", "signs"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-008",
+    "difficulty": "hard",
+    "question": "What are the current first-line treatments for major depressive disorder?",
+    "ground_truth": "First-line treatments include SSRIs (e.g., sertraline, fluoxetine) or SNRIs, combined with psychotherapy (CBT). Lifestyle interventions and social support are also recommended. Medication choice depends on comorbidities and prior treatment history.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["mental_health", "depression", "pharmacology", "treatment"],
+    "notes": "Requires up-to-date clinical guidelines in index."
+  },
+  {
+    "id": "RAG-009",
+    "difficulty": "easy",
+    "question": "What foods are high in iron?",
+    "ground_truth": "Foods high in iron include red meat, organ meats (liver), legumes (lentils, beans), tofu, spinach, fortified cereals, nuts and seeds, and dried fruits like apricots and raisins.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["nutrition", "iron", "diet"],
+    "notes": ""
+  },
+  {
+    "id": "RAG-010",
+    "difficulty": "medium",
+    "question": "When should a person with asthma use a rescue inhaler versus a controller inhaler?",
+    "ground_truth": "A rescue inhaler (e.g., albuterol) is for immediate symptom relief during an asthma attack. A controller inhaler (e.g., inhaled corticosteroids) is taken daily to prevent symptoms and reduce airway inflammation. Using a rescue inhaler more than twice a week may indicate poor asthma control.",
+    "contexts": [],
+    "answer": "",
+    "source_doc": null,
+    "tags": ["asthma", "inhaler", "medication_use"],
+    "notes": "Bot must distinguish rescue vs controller clearly."
+  }
+]

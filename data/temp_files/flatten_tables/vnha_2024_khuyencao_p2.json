@@ -1,0 +1,94 @@
+[
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Tổng quan bảng phân loại khuyến cáo (VSH/VNHA 2024): gồm Loại I, II, Nhóm IIa, Nhóm IIb và Loại III; mức độ khuyến cáo giảm dần từ I đến III.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 0,
+      "table_group": "recommendation_taxonomy",
+      "chunk_role": "overview",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Loại I: Chứng cứ và/hoặc sự đồng thuận cho thấy việc điều trị mang lại lợi ích và hiệu quả.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 1,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Loại II: Chứng cứ đang còn bàn và/hoặc ý kiến khác nhau về sự hữu ích/hiệu quả của việc điều trị.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 2,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Nhóm IIa: Phần lớn chứng cứ/ý kiến ủng hộ về tính hiệu quả của việc điều trị.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 3,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Nhóm IIb: Chứng cứ/ý kiến chưa cho thấy hiệu quả/hữu ích.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 4,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Loại III: Chứng cứ và/hoặc sự đồng thuận cho thấy việc điều trị không mang lại lợi ích và hiệu quả; trong vài trường hợp có thể gây nguy hại.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 5,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "phân loại khuyến cáo",
+    "row_content": "Tóm tắt khuyến cáo: Bảng phân loại gồm I, II, IIa, IIb, III; mức tích cực khuyến cáo giảm dần từ I đến III.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 9,
+      "table_group": "recommendation_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  }
+]

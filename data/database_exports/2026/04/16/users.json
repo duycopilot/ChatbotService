@@ -1,0 +1,90 @@
+[
+  {
+    "id": "user_leo",
+    "full_name": "Tran Leo",
+    "email": "leo@gmail.com",
+    "phone_number": "0832790031",
+    "date_of_birth": "2004-04-14",
+    "gender": "female",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-14T15:42:31.669796",
+    "updated_at": "2026-04-14T15:42:31.669796"
+  },
+  {
+    "id": "leo",
+    "full_name": "leo",
+    "email": "leo@gmail.hihi",
+    "phone_number": "0353372746",
+    "date_of_birth": "2000-04-16",
+    "gender": "male",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T10:35:21.417376",
+    "updated_at": "2026-04-16T10:35:21.417376"
+  },
+  {
+    "id": "leooo",
+    "full_name": "leo",
+    "email": "leo2607@gmail.hihi",
+    "phone_number": "0353372746",
+    "date_of_birth": "2000-04-16",
+    "gender": "male",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T10:36:09.208317",
+    "updated_at": "2026-04-16T10:36:09.208317"
+  },
+  {
+    "id": "meomeo",
+    "full_name": "meomeo",
+    "email": "meo@gmail.hihi",
+    "phone_number": "0353372746",
+    "date_of_birth": "2000-04-16",
+    "gender": "male",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T11:15:15.438623",
+    "updated_at": "2026-04-16T11:15:15.438623"
+  },
+  {
+    "id": "gaugau",
+    "full_name": "gaugau",
+    "email": "gaugau@gmail.hihi",
+    "phone_number": "0353372746",
+    "date_of_birth": "2000-04-16",
+    "gender": "male",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T11:46:11.638224",
+    "updated_at": "2026-04-16T11:46:11.638224"
+  },
+  {
+    "id": "cheocheo",
+    "full_name": "cheocheo",
+    "email": "cheocheo@gmail.hihi",
+    "phone_number": "0353372746",
+    "date_of_birth": "2000-04-16",
+    "gender": "male",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T12:39:58.851843",
+    "updated_at": "2026-04-16T12:39:58.851843"
+  },
+  {
+    "id": "hoho",
+    "full_name": "hoho",
+    "email": "hoho@gmail.leo",
+    "phone_number": "0932090011",
+    "date_of_birth": "2021-04-16",
+    "gender": "string",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T13:22:47.910429",
+    "updated_at": "2026-04-16T13:22:47.910429"
+  },
+  {
+    "id": "ccc",
+    "full_name": "ccc",
+    "email": "ccc@gmail.leo",
+    "phone_number": "0932090011",
+    "date_of_birth": "2021-04-16",
+    "gender": "string",
+    "metadata": "{\"additionalProp1\": {}}",
+    "created_at": "2026-04-16T13:37:02.742902",
+    "updated_at": "2026-04-16T13:37:02.742902"
+  }
+]

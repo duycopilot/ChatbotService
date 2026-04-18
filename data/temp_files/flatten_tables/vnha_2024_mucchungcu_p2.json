@@ -1,0 +1,68 @@
+[
+  {
+    "table_name": "mức chứng cứ",
+    "row_content": "Tổng quan bảng mức chứng cứ (VSH/VNHA 2024): gồm mức A, B, C theo độ mạnh dữ liệu từ cao đến thấp, dùng để diễn giải độ chắc chắn của khuyến cáo.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 0,
+      "table_group": "evidence_taxonomy",
+      "chunk_role": "overview",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "mức chứng cứ",
+    "row_content": "Mức chứng cứ A: Dữ liệu có từ nhiều nghiên cứu lâm sàng ngẫu nhiên hoặc các phân tích gộp.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 6,
+      "table_group": "evidence_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "mức chứng cứ",
+    "row_content": "Mức chứng cứ B: Dữ liệu có từ nhiều nghiên cứu lâm sàng ngẫu nhiên hoặc các nghiên cứu lớn không ngẫu nhiên.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 7,
+      "table_group": "evidence_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "mức chứng cứ",
+    "row_content": "Mức chứng cứ C: Sự đồng thuận của các chuyên gia và/hoặc các nghiên cứu nhỏ, các nghiên cứu hồi cứu.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 8,
+      "table_group": "evidence_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  },
+  {
+    "table_name": "mức chứng cứ",
+    "row_content": "Tóm tắt chứng cứ: Bảng mức chứng cứ gồm A, B, C theo độ mạnh của dữ liệu từ cao đến thấp.",
+    "metadata": {
+      "h1": "phân loại khuyến cáo và mức chứng cứ",
+      "header_path": "đồng thuận 2024 > phân loại khuyến cáo và mức chứng cứ",
+      "source_file": "vsh_vnha_2024_consensus.pdf",
+      "source_page": 2,
+      "paragraph_order": 10,
+      "table_group": "evidence_taxonomy",
+      "title": "đồng thuận 2024"
+    }
+  }
+]

@@ -1,0 +1,3 @@
+'''
+Purpose: Middleware for authentication
+'''
