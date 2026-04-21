@@ -10,10 +10,10 @@ from typing import Any
 from langchain_core.documents import Document
 
 
-DEFAULT_TEXT_PASSAGES_CSV = Path("/home/duynt/Refined_Chatbot/data/raw_files/passage.csv")
-DEFAULT_TABLES_DIR = Path("/home/duynt/Refined_Chatbot/data/temp_files/flatten_tables")
-LEGACY_TEXT_PASSAGES_CSV = Path("/home/duynt/Refined_Chatbot/data/temp_files/content.csv")
-LEGACY_TABLES_JSON = Path("/home/duynt/Refined_Chatbot/data/temp_files/individual_flatten_table.json")
+DEFAULT_TEXT_PASSAGES_CSV = Path("/home/leo/workspace/ChatbotService/data/raw_files/passage.csv")
+DEFAULT_TABLES_DIR = Path("/home/leo/workspace/ChatbotService/data/temp_files/flatten_tables")
+LEGACY_TEXT_PASSAGES_CSV = Path("/home/leo/workspace/ChatbotService/data/temp_files/content.csv")
+LEGACY_TABLES_JSON = Path("/home/leo/workspace/ChatbotService/data/temp_files/individual_flatten_table.json")
 
 
 def _clean_text(value: object) -> str:

@@ -9,18 +9,18 @@ llm:
   primary:
     name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
     version: "1.0"
-    base_url: "${LLM_BASE_URL:http://localhost:8380/v1}"
+    base_url: "${LLM_BASE_URL:https://sim-examples-collect-jets.trycloudflare.com/v1}"
     model_id: "${LLM_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
     api_key: "${LLM_API_KEY:dummy}"
     hyperparameters:
       temperature: 0.0
-      max_tokens: 1024
+      max_tokens: 1572 #1024
       top_p: 0.7
 
   classifier:
     name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
     version: "1.0"
-    base_url: "${CLASSIFIER_BASE_URL:http://localhost:8380/v1}"
+    base_url: "${CLASSIFIER_BASE_URL:https://sim-examples-collect-jets.trycloudflare.com/v1}"
     model_id: "${CLASSIFIER_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
     api_key: "${CLASSIFIER_API_KEY:dummy}"
     hyperparameters:
@@ -30,7 +30,7 @@ llm:
   summarizer:
     name: "cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
     version: "1.0"
-    base_url: "${SUMMARIZER_BASE_URL:http://localhost:8380/v1}"
+    base_url: "${SUMMARIZER_BASE_URL:https://sim-examples-collect-jets.trycloudflare.com/v1}"
     model_id: "${SUMMARIZER_MODEL:cyankiwi/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit}"
     api_key: "${SUMMARIZER_API_KEY:dummy}"
     hyperparameters:
@@ -52,13 +52,13 @@ memory:
     backend: "postgres"
     enabled: true
     hyperparameters:
-      max_recent_turns: 8      # Number of latest DB turns fetched before token-aware filtering.
+      max_recent_turns: 10 #8      # Number of latest DB turns fetched before token-aware filtering.
       max_turns_in_prompt: 3   # Target number of recent turns preferred for final prompt context.
     summarization:
       enabled: true            # Enable summarization of older turns when history is too long.
-      threshold_tokens: 2400   # Trigger summarization when estimated history tokens >= this value.
-      keep_recent_turns: 2     # Always keep this many newest turns verbatim (not summarized).
-      reserve_tokens: 256      # Reserved input budget to avoid overflow after prompt assembly. (exception tokens)
+      threshold_tokens: 1800 #2400   # Trigger summarization when estimated history tokens >= this value.
+      keep_recent_turns: 3 #2     # Always keep this many newest turns verbatim (not summarized).
+      reserve_tokens: 320 #256      # Reserved input budget to avoid overflow after prompt assembly. (exception tokens)
       tokenizer:
         strategy: "auto"      # Token counting mode: auto | hf | tiktoken | simple.
         model_name: null       # Optional tokenizer model; null falls back to active LLM model name.
@@ -68,11 +68,11 @@ memory:
     provider: "qdrant"
     collection_name: "refined_chatbot_memories"
     hyperparameters:
-      top_k: 4
-      fallback_limit: 4
+      top_k: 5 #4
+      fallback_limit: 5 #4
       max_write_items: 3
-      min_confidence: 0.7
-      max_content_chars: 280
+      min_confidence:  0.8 #0.7
+      max_content_chars: 200 #280
 
 rag:
   query:
@@ -111,6 +111,11 @@ rag:
 
     generation:
       max_history_turns: 2
+      safety_margin_tokens: 160
+      doc_budget_ratio: 0.60
+      doc_prefix_tokens: 10
+      tag_tokens: 96
+      role_format_overhead: 5
 
   ingestion:
     chunking:
@@ -200,3 +205,12 @@ feature_flags:
   enabled_intents: ["chitchat", "rag"]
   translate_input: false
   translate_output: false
+
+generation:
+  safety_margin_tokens: 160
+  doc_budget_ratio: 0.60
+  N_tokens: 10
+  role_format_overhead: 5
+  tag_tokens: 96
+
+

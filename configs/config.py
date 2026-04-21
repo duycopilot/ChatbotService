@@ -299,6 +299,11 @@ class Settings:
         )
 
         self.RAG_GENERATION_MAX_HISTORY_TURNS = _as_int(rag_generation.get("max_history_turns", 4), 4)
+        self.RAG_GENERATION_SAFETY_MARGIN_TOKENS = _as_int(rag_generation.get("safety_margin_tokens", 160), 160)
+        self.RAG_GENERATION_DOC_BUDGET_RATIO = _as_float(rag_generation.get("doc_budget_ratio", 0.60), 0.60)
+        self.RAG_GENERATION_DOC_PREFIX_TOKENS = _as_int(rag_generation.get("doc_prefix_tokens", 10), 10)
+        self.RAG_GENERATION_TAG_TOKENS = _as_int(rag_generation.get("tag_tokens", 96), 96)
+        self.RAG_GENERATION_ROLE_FORMAT_OVERHEAD = _as_int(rag_generation.get("role_format_overhead", 5), 5)
 
         rag_ingestion = _as_dict(rag.get("ingestion"))
         chunking = _as_dict(rag_ingestion.get("chunking"))

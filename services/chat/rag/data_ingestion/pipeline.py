@@ -162,7 +162,7 @@ def main() -> None:
 	parser.add_argument(
 		"--output",
 		type=str,
-		default="/home/duynt/Refined_Chatbot/data/temp_files/ingestion_result.json",
+		default="/home/leo/workspace/ChatbotService/data/temp_files/ingestion_result.json",
 	)
 	args = parser.parse_args()
 	run_id = args.run_id or f"run_{datetime.now().isoformat()}"
@@ -189,7 +189,7 @@ def main() -> None:
 	print(json.dumps(result, ensure_ascii=False, indent=2))
 	print(f"Saved result to: {output_path}")
 	print(f"Run ID: {run_id}")
-	print(f"Run logs: /home/duynt/Refined_Chatbot/logs/runs/{run_id}")
+	print(f"Run logs: /home/leo/workspace/ChatbotService/logs/runs/{run_id}")
 
 
 if __name__ == "__main__":
