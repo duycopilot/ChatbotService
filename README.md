@@ -2,6 +2,11 @@
 
 RAG-based chatbot with FastAPI + vLLM + Qdrant + Elasticsearch + Langfuse.
 
+## Tài liệu kỹ thuật
+
+- Token-aware LLM (short-term memory + RAG generation): `docs/token-aware-llm.md`
+- Long-term memory (kiến trúc, trade-off, vận hành): `docs/long-term-memory.md`
+
 ---
 
 ## Prerequisites

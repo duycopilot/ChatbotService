@@ -13,7 +13,6 @@ from services.chat.memory import MemoryTurn
 from services.chat.memory.token_aware import create_token_counter
 from services.observability import langfuse_client
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -51,7 +50,7 @@ def _trim_docs_to_budget(
 	used = 0
 	for doc in documents:
 		text = doc.get("page_content") or doc.get("content", "")
-		tokens = counter.count(text) + 10  # +10 for "[N] " prefix per doc
+		tokens = counter.count(text) + settings.RAG_GENERATION_DOC_PREFIX_TOKENS  # +10 for "[N] " prefix per doc
 		if used + tokens <= doc_budget:
 			trimmed.append(doc)
 			used += tokens
@@ -74,7 +73,7 @@ def _trim_history_to_budget(
 	trimmed_reversed: list[HumanMessage | AIMessage] = []
 	used = 0
 	for message in reversed(history_messages):
-		tokens = counter.count(message.content) + 5  # +5 role/format overhead
+		tokens = counter.count(message.content) + settings.RAG_GENERATION_ROLE_FORMAT_OVERHEAD  # role/format overhead
 		if used + tokens > budget_tokens:
 			break
 		trimmed_reversed.append(message)
@@ -107,8 +106,8 @@ async def generate_answer(
 		},
 	) as gen_obs:
 		SYSTEM_PREFIX = settings.RAG_SYSTEM_PROMPT_TEMPLATE + "\n\nContext:"
-		SAFETY_MARGIN_TOKENS = 160
-		DOC_BUDGET_RATIO = 0.60
+		SAFETY_MARGIN_TOKENS = settings.RAG_GENERATION_SAFETY_MARGIN_TOKENS
+		DOC_BUDGET_RATIO = settings.RAG_GENERATION_DOC_BUDGET_RATIO
 		effective_history_turns = (
 			settings.RAG_GENERATION_MAX_HISTORY_TURNS
 			if max_history_turns is None
@@ -127,7 +126,7 @@ async def generate_answer(
 			- SAFETY_MARGIN_TOKENS
 		)
 
-		fixed_overhead = counter.count(SYSTEM_PREFIX) + counter.count(query) + 96
+		fixed_overhead = counter.count(SYSTEM_PREFIX) + counter.count(query) + settings.RAG_GENERATION_TAG_TOKENS
 		variable_budget = max(0, max_input_tokens - fixed_overhead)
 		doc_budget = int(variable_budget * DOC_BUDGET_RATIO)
 		history_budget = max(0, variable_budget - doc_budget)

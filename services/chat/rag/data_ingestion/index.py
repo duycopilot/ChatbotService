@@ -129,7 +129,7 @@ def index_embedded_chunks_elasticsearch(
 		return {"index_name": index_name, "indexed": 0}
 
 	try:
-		from elasticsearch import Elasticsearch, helpers
+		from elasticsearch import Elasticsearch, __versionstr__ as es_client_version, helpers
 	except ImportError as exc:
 		raise ImportError(
 			"elasticsearch is not installed. Install with: pip install elasticsearch"
@@ -142,6 +142,21 @@ def index_embedded_chunks_elasticsearch(
 		retry_on_timeout=True,
 		max_retries=3,
 	)
+
+	try:
+		server_info = client.info()
+		server_version = str(server_info.get("version", {}).get("number", ""))
+		server_major = int(server_version.split(".")[0]) if server_version else None
+		client_major = int(str(es_client_version).split(".")[0])
+		if server_major is not None and client_major != server_major:
+			raise RuntimeError(
+				"Elasticsearch client/server major version mismatch. "
+				f"Client: {es_client_version}, Server: {server_version}. "
+				"Please install elasticsearch package with matching major version "
+				"(for Elasticsearch 8.x use: pip install 'elasticsearch>=8,<9')."
+			)
+	except ValueError as exc:
+		raise RuntimeError("Unable to parse Elasticsearch version information") from exc
 
 	if not client.indices.exists(index=index_name):
 		client.indices.create(
